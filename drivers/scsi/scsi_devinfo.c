@@ -1,4 +1,3 @@
-
 #include <linux/blkdev.h>
 #include <linux/init.h>
 #include <linux/kernel.h>
@@ -291,7 +290,7 @@ static void scsi_strcpy_devinfo(char *name, char *to, size_t to_length,
 
 	from_length = strlen(from);
 	/* this zero-pads the destination */
-	strncpy(to, from, to_length);
+	memcpy(to, from, to_length);
 	if (from_length < to_length && !compatible) {
 		/*
 		 * space pad the string if it is short.
